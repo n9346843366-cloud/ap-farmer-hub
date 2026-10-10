@@ -85,7 +85,8 @@ export function buildDemoState(lang: Lang = "en"): State {
   };
 }
 
-type Ctx = State & {
+type Ctx = Omit<State, "gov"> & {
+  gov: Gov; updateGov: (fn: (g: Gov) => Gov) => void;
   hydrated: boolean;
   t: (k: DictKey) => string;
   tl: (l: L | string) => string;
