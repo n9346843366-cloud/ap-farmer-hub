@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { AppShell, seo } from "@/components/AppShell";
 import { Card, Chip, Eyebrow, Notice, PageHeader, useT } from "@/components/kit";
@@ -35,6 +35,9 @@ function Schemes() {
   return (
     <div className="space-y-3">
       <PageHeader emoji="🏛️" title={T("Government Schemes", "ప్రభుత్వ పథకాలు")} />
+      <Link to="/meeseva" className="glass flex items-center justify-between gap-2 p-3 text-sm font-semibold">
+        <span>🏢 {T("Mini MeeSeva — land records, certificates & application tracking", "మినీ మీసేవ — భూమి రికార్డులు, ధృవపత్రాలు, దరఖాస్తు స్థితి")}</span><span className="text-primary">→</span>
+      </Link>
       <Card>
         <Eyebrow>{T("Check your eligibility", "మీ అర్హత చూడండి")}</Eyebrow>
         <p className="mt-3 text-sm font-semibold">{T("Your land", "మీ భూమి")}</p>

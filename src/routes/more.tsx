@@ -14,6 +14,8 @@ export const Route = createFileRoute("/more")({
 });
 
 const LINKS = [
+  { to: "/meeseva", e: "🏢", en: "Mini MeeSeva", te: "మినీ మీసేవ" },
+  { to: "/mango", e: "🥭", en: "Mango care", te: "మామిడి సంరక్షణ" },
   { to: "/expert", e: "👨‍🌾", en: "Expert help", te: "నిపుణుల సహాయం" },
 ];
 

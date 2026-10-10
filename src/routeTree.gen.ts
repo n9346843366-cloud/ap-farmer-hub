@@ -21,6 +21,7 @@ import { Route as LearningRouteImport } from './routes/learning'
 import { Route as LoansRouteImport } from './routes/loans'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MarketRouteImport } from './routes/market'
+import { Route as MeesevaRouteImport } from './routes/meeseva'
 import { Route as MoreRouteImport } from './routes/more'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PestsRouteImport } from './routes/pests'
@@ -100,6 +101,11 @@ const LoginRoute = LoginRouteImport.update({
 const MarketRoute = MarketRouteImport.update({
   id: '/market',
   path: '/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeesevaRoute = MeesevaRouteImport.update({
+  id: '/meeseva',
+  path: '/meeseva',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MoreRoute = MoreRouteImport.update({
@@ -216,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/loans': typeof LoansRoute
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
+  '/meeseva': typeof MeesevaRoute
   '/more': typeof MoreRoute
   '/notifications': typeof NotificationsRoute
   '/pests': typeof PestsRoute
@@ -250,6 +257,7 @@ export interface FileRoutesByTo {
   '/loans': typeof LoansRoute
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
+  '/meeseva': typeof MeesevaRoute
   '/more': typeof MoreRoute
   '/notifications': typeof NotificationsRoute
   '/pests': typeof PestsRoute
@@ -285,6 +293,7 @@ export interface FileRoutesById {
   '/loans': typeof LoansRoute
   '/login': typeof LoginRoute
   '/market': typeof MarketRoute
+  '/meeseva': typeof MeesevaRoute
   '/more': typeof MoreRoute
   '/notifications': typeof NotificationsRoute
   '/pests': typeof PestsRoute
@@ -321,6 +330,7 @@ export interface FileRouteTypes {
     | '/loans'
     | '/login'
     | '/market'
+    | '/meeseva'
     | '/more'
     | '/notifications'
     | '/pests'
@@ -355,6 +365,7 @@ export interface FileRouteTypes {
     | '/loans'
     | '/login'
     | '/market'
+    | '/meeseva'
     | '/more'
     | '/notifications'
     | '/pests'
@@ -389,6 +400,7 @@ export interface FileRouteTypes {
     | '/loans'
     | '/login'
     | '/market'
+    | '/meeseva'
     | '/more'
     | '/notifications'
     | '/pests'
@@ -424,6 +436,7 @@ export interface RootRouteChildren {
   LoansRoute: typeof LoansRoute
   LoginRoute: typeof LoginRoute
   MarketRoute: typeof MarketRoute
+  MeesevaRoute: typeof MeesevaRoute
   MoreRoute: typeof MoreRoute
   NotificationsRoute: typeof NotificationsRoute
   PestsRoute: typeof PestsRoute
@@ -530,6 +543,13 @@ declare module '@tanstack/react-router' {
       path: '/market'
       fullPath: '/market'
       preLoaderRoute: typeof MarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meeseva': {
+      id: '/meeseva'
+      path: '/meeseva'
+      fullPath: '/meeseva'
+      preLoaderRoute: typeof MeesevaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/more': {
@@ -688,6 +708,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoansRoute: LoansRoute,
   LoginRoute: LoginRoute,
   MarketRoute: MarketRoute,
+  MeesevaRoute: MeesevaRoute,
   MoreRoute: MoreRoute,
   NotificationsRoute: NotificationsRoute,
   PestsRoute: PestsRoute,

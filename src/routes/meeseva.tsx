@@ -5,6 +5,7 @@ import { Btn, Card, Chip, Eyebrow, Field, inputCls, Notice, PageHeader, useT } f
 import { useApp } from "@/lib/store";
 import type { GovApp } from "@/lib/store";
 import { iso } from "@/lib/crops";
+import { toast } from "sonner";
 import { CATEGORIES, CONFIRM_NOTE, LISTED_ON, NEEDS, PORTALS, SERVICES, searchServices, type CatId, type Service } from "@/lib/meeseva";
 
 export const Route = createFileRoute("/meeseva")({
@@ -197,7 +198,7 @@ function Apps() {
   };
   const remind = (a: GovApp) => {
     addTask({ farmId: activeFarm?.id ?? "", title: { en: `Follow up: ${a.service} (${a.ref})`, te: `ఫాలో అప్: ${a.service} (${a.ref})` }, type: "gov", date: a.followUp || iso(new Date()) });
-    updateGov((g) => ({ ...g, apps: g.apps.map((x) => (x.id === a.id ? { ...x, notes: x.notes } : x)) }));
+    toast.success(T("Reminder added to your farm tasks", "పొలం పనుల్లో గుర్తు జోడించబడింది"));
   };
   return (
     <>
