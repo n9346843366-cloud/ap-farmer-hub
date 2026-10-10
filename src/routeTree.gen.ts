@@ -20,6 +20,7 @@ import { Route as IrrigationRouteImport } from './routes/irrigation'
 import { Route as LearningRouteImport } from './routes/learning'
 import { Route as LoansRouteImport } from './routes/loans'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MangoRouteImport } from './routes/mango'
 import { Route as MarketRouteImport } from './routes/market'
 import { Route as MeesevaRouteImport } from './routes/meeseva'
 import { Route as MoreRouteImport } from './routes/more'
@@ -96,6 +97,11 @@ const LoansRoute = LoansRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MangoRoute = MangoRouteImport.update({
+  id: '/mango',
+  path: '/mango',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MarketRoute = MarketRouteImport.update({
@@ -221,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/learning': typeof LearningRoute
   '/loans': typeof LoansRoute
   '/login': typeof LoginRoute
+  '/mango': typeof MangoRoute
   '/market': typeof MarketRoute
   '/meeseva': typeof MeesevaRoute
   '/more': typeof MoreRoute
@@ -256,6 +263,7 @@ export interface FileRoutesByTo {
   '/learning': typeof LearningRoute
   '/loans': typeof LoansRoute
   '/login': typeof LoginRoute
+  '/mango': typeof MangoRoute
   '/market': typeof MarketRoute
   '/meeseva': typeof MeesevaRoute
   '/more': typeof MoreRoute
@@ -292,6 +300,7 @@ export interface FileRoutesById {
   '/learning': typeof LearningRoute
   '/loans': typeof LoansRoute
   '/login': typeof LoginRoute
+  '/mango': typeof MangoRoute
   '/market': typeof MarketRoute
   '/meeseva': typeof MeesevaRoute
   '/more': typeof MoreRoute
@@ -329,6 +338,7 @@ export interface FileRouteTypes {
     | '/learning'
     | '/loans'
     | '/login'
+    | '/mango'
     | '/market'
     | '/meeseva'
     | '/more'
@@ -364,6 +374,7 @@ export interface FileRouteTypes {
     | '/learning'
     | '/loans'
     | '/login'
+    | '/mango'
     | '/market'
     | '/meeseva'
     | '/more'
@@ -399,6 +410,7 @@ export interface FileRouteTypes {
     | '/learning'
     | '/loans'
     | '/login'
+    | '/mango'
     | '/market'
     | '/meeseva'
     | '/more'
@@ -435,6 +447,7 @@ export interface RootRouteChildren {
   LearningRoute: typeof LearningRoute
   LoansRoute: typeof LoansRoute
   LoginRoute: typeof LoginRoute
+  MangoRoute: typeof MangoRoute
   MarketRoute: typeof MarketRoute
   MeesevaRoute: typeof MeesevaRoute
   MoreRoute: typeof MoreRoute
@@ -536,6 +549,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mango': {
+      id: '/mango'
+      path: '/mango'
+      fullPath: '/mango'
+      preLoaderRoute: typeof MangoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/market': {
@@ -707,6 +727,7 @@ const rootRouteChildren: RootRouteChildren = {
   LearningRoute: LearningRoute,
   LoansRoute: LoansRoute,
   LoginRoute: LoginRoute,
+  MangoRoute: MangoRoute,
   MarketRoute: MarketRoute,
   MeesevaRoute: MeesevaRoute,
   MoreRoute: MoreRoute,
