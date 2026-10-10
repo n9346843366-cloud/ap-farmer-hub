@@ -10,33 +10,440 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as BusinessRouteImport } from './routes/business'
+import { Route as ExpertRouteImport } from './routes/expert'
+import { Route as FertilizerRouteImport } from './routes/fertilizer'
+import { Route as FinanceRouteImport } from './routes/finance'
+import { Route as ForgotRouteImport } from './routes/forgot'
+import { Route as IrrigationRouteImport } from './routes/irrigation'
+import { Route as LearningRouteImport } from './routes/learning'
+import { Route as LoansRouteImport } from './routes/loans'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as MarketRouteImport } from './routes/market'
+import { Route as MoreRouteImport } from './routes/more'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PestsRouteImport } from './routes/pests'
+import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as PlantRouteImport } from './routes/plant'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as ScanRouteImport } from './routes/scan'
+import { Route as SchemesRouteImport } from './routes/schemes'
+import { Route as TasksRouteImport } from './routes/tasks'
+import { Route as VerifyRouteImport } from './routes/verify'
+import { Route as WeatherRouteImport } from './routes/weather'
+import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as ApiAssistantRouteImport } from './routes/api/assistant'
+import { Route as ApiBusinessRouteImport } from './routes/api/business'
+import { Route as ApiLearnRouteImport } from './routes/api/learn'
+import { Route as ApiScanRouteImport } from './routes/api/scan'
+import { Route as FarmIndexRouteImport } from './routes/farm.index'
+import { Route as FarmFarmIdRouteImport } from './routes/farm.$farmId'
+import { Route as PlanPlanIdRouteImport } from './routes/plan.$planId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertRoute = ExpertRouteImport.update({
+  id: '/expert',
+  path: '/expert',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FertilizerRoute = FertilizerRouteImport.update({
+  id: '/fertilizer',
+  path: '/fertilizer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceRoute = FinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotRoute = ForgotRouteImport.update({
+  id: '/forgot',
+  path: '/forgot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IrrigationRoute = IrrigationRouteImport.update({
+  id: '/irrigation',
+  path: '/irrigation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningRoute = LearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoansRoute = LoansRouteImport.update({
+  id: '/loans',
+  path: '/loans',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketRoute = MarketRouteImport.update({
+  id: '/market',
+  path: '/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PestsRoute = PestsRouteImport.update({
+  id: '/pests',
+  path: '/pests',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlannerRoute = PlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlantRoute = PlantRouteImport.update({
+  id: '/plant',
+  path: '/plant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScanRoute = ScanRouteImport.update({
+  id: '/scan',
+  path: '/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchemesRoute = SchemesRouteImport.update({
+  id: '/schemes',
+  path: '/schemes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRoute = TasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyRoute = VerifyRouteImport.update({
+  id: '/verify',
+  path: '/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WeatherRoute = WeatherRouteImport.update({
+  id: '/weather',
+  path: '/weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAssistantRoute = ApiAssistantRouteImport.update({
+  id: '/api/assistant',
+  path: '/api/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBusinessRoute = ApiBusinessRouteImport.update({
+  id: '/api/business',
+  path: '/api/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiLearnRoute = ApiLearnRouteImport.update({
+  id: '/api/learn',
+  path: '/api/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiScanRoute = ApiScanRouteImport.update({
+  id: '/api/scan',
+  path: '/api/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FarmIndexRoute = FarmIndexRouteImport.update({
+  id: '/farm/',
+  path: '/farm/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FarmFarmIdRoute = FarmFarmIdRouteImport.update({
+  id: '/farm/$farmId',
+  path: '/farm/$farmId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanPlanIdRoute = PlanPlanIdRouteImport.update({
+  id: '/plan/$planId',
+  path: '/plan/$planId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/business': typeof BusinessRoute
+  '/expert': typeof ExpertRoute
+  '/fertilizer': typeof FertilizerRoute
+  '/finance': typeof FinanceRoute
+  '/forgot': typeof ForgotRoute
+  '/irrigation': typeof IrrigationRoute
+  '/learning': typeof LearningRoute
+  '/loans': typeof LoansRoute
+  '/login': typeof LoginRoute
+  '/market': typeof MarketRoute
+  '/more': typeof MoreRoute
+  '/notifications': typeof NotificationsRoute
+  '/pests': typeof PestsRoute
+  '/planner': typeof PlannerRoute
+  '/plant': typeof PlantRoute
+  '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/scan': typeof ScanRoute
+  '/schemes': typeof SchemesRoute
+  '/tasks': typeof TasksRoute
+  '/verify': typeof VerifyRoute
+  '/weather': typeof WeatherRoute
+  '/welcome': typeof WelcomeRoute
+  '/api/assistant': typeof ApiAssistantRoute
+  '/api/business': typeof ApiBusinessRoute
+  '/api/learn': typeof ApiLearnRoute
+  '/api/scan': typeof ApiScanRoute
+  '/farm/$farmId': typeof FarmFarmIdRoute
+  '/plan/$planId': typeof PlanPlanIdRoute
+  '/farm/': typeof FarmIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/business': typeof BusinessRoute
+  '/expert': typeof ExpertRoute
+  '/fertilizer': typeof FertilizerRoute
+  '/finance': typeof FinanceRoute
+  '/forgot': typeof ForgotRoute
+  '/irrigation': typeof IrrigationRoute
+  '/learning': typeof LearningRoute
+  '/loans': typeof LoansRoute
+  '/login': typeof LoginRoute
+  '/market': typeof MarketRoute
+  '/more': typeof MoreRoute
+  '/notifications': typeof NotificationsRoute
+  '/pests': typeof PestsRoute
+  '/planner': typeof PlannerRoute
+  '/plant': typeof PlantRoute
+  '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/scan': typeof ScanRoute
+  '/schemes': typeof SchemesRoute
+  '/tasks': typeof TasksRoute
+  '/verify': typeof VerifyRoute
+  '/weather': typeof WeatherRoute
+  '/welcome': typeof WelcomeRoute
+  '/api/assistant': typeof ApiAssistantRoute
+  '/api/business': typeof ApiBusinessRoute
+  '/api/learn': typeof ApiLearnRoute
+  '/api/scan': typeof ApiScanRoute
+  '/farm/$farmId': typeof FarmFarmIdRoute
+  '/plan/$planId': typeof PlanPlanIdRoute
+  '/farm': typeof FarmIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/business': typeof BusinessRoute
+  '/expert': typeof ExpertRoute
+  '/fertilizer': typeof FertilizerRoute
+  '/finance': typeof FinanceRoute
+  '/forgot': typeof ForgotRoute
+  '/irrigation': typeof IrrigationRoute
+  '/learning': typeof LearningRoute
+  '/loans': typeof LoansRoute
+  '/login': typeof LoginRoute
+  '/market': typeof MarketRoute
+  '/more': typeof MoreRoute
+  '/notifications': typeof NotificationsRoute
+  '/pests': typeof PestsRoute
+  '/planner': typeof PlannerRoute
+  '/plant': typeof PlantRoute
+  '/register': typeof RegisterRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/scan': typeof ScanRoute
+  '/schemes': typeof SchemesRoute
+  '/tasks': typeof TasksRoute
+  '/verify': typeof VerifyRoute
+  '/weather': typeof WeatherRoute
+  '/welcome': typeof WelcomeRoute
+  '/api/assistant': typeof ApiAssistantRoute
+  '/api/business': typeof ApiBusinessRoute
+  '/api/learn': typeof ApiLearnRoute
+  '/api/scan': typeof ApiScanRoute
+  '/farm/$farmId': typeof FarmFarmIdRoute
+  '/plan/$planId': typeof PlanPlanIdRoute
+  '/farm/': typeof FarmIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/assistant'
+    | '/business'
+    | '/expert'
+    | '/fertilizer'
+    | '/finance'
+    | '/forgot'
+    | '/irrigation'
+    | '/learning'
+    | '/loans'
+    | '/login'
+    | '/market'
+    | '/more'
+    | '/notifications'
+    | '/pests'
+    | '/planner'
+    | '/plant'
+    | '/register'
+    | '/reset-password'
+    | '/scan'
+    | '/schemes'
+    | '/tasks'
+    | '/verify'
+    | '/weather'
+    | '/welcome'
+    | '/api/assistant'
+    | '/api/business'
+    | '/api/learn'
+    | '/api/scan'
+    | '/farm/$farmId'
+    | '/plan/$planId'
+    | '/farm/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/assistant'
+    | '/business'
+    | '/expert'
+    | '/fertilizer'
+    | '/finance'
+    | '/forgot'
+    | '/irrigation'
+    | '/learning'
+    | '/loans'
+    | '/login'
+    | '/market'
+    | '/more'
+    | '/notifications'
+    | '/pests'
+    | '/planner'
+    | '/plant'
+    | '/register'
+    | '/reset-password'
+    | '/scan'
+    | '/schemes'
+    | '/tasks'
+    | '/verify'
+    | '/weather'
+    | '/welcome'
+    | '/api/assistant'
+    | '/api/business'
+    | '/api/learn'
+    | '/api/scan'
+    | '/farm/$farmId'
+    | '/plan/$planId'
+    | '/farm'
+  id:
+    | '__root__'
+    | '/'
+    | '/assistant'
+    | '/business'
+    | '/expert'
+    | '/fertilizer'
+    | '/finance'
+    | '/forgot'
+    | '/irrigation'
+    | '/learning'
+    | '/loans'
+    | '/login'
+    | '/market'
+    | '/more'
+    | '/notifications'
+    | '/pests'
+    | '/planner'
+    | '/plant'
+    | '/register'
+    | '/reset-password'
+    | '/scan'
+    | '/schemes'
+    | '/tasks'
+    | '/verify'
+    | '/weather'
+    | '/welcome'
+    | '/api/assistant'
+    | '/api/business'
+    | '/api/learn'
+    | '/api/scan'
+    | '/farm/$farmId'
+    | '/plan/$planId'
+    | '/farm/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssistantRoute: typeof AssistantRoute
+  BusinessRoute: typeof BusinessRoute
+  ExpertRoute: typeof ExpertRoute
+  FertilizerRoute: typeof FertilizerRoute
+  FinanceRoute: typeof FinanceRoute
+  ForgotRoute: typeof ForgotRoute
+  IrrigationRoute: typeof IrrigationRoute
+  LearningRoute: typeof LearningRoute
+  LoansRoute: typeof LoansRoute
+  LoginRoute: typeof LoginRoute
+  MarketRoute: typeof MarketRoute
+  MoreRoute: typeof MoreRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PestsRoute: typeof PestsRoute
+  PlannerRoute: typeof PlannerRoute
+  PlantRoute: typeof PlantRoute
+  RegisterRoute: typeof RegisterRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  ScanRoute: typeof ScanRoute
+  SchemesRoute: typeof SchemesRoute
+  TasksRoute: typeof TasksRoute
+  VerifyRoute: typeof VerifyRoute
+  WeatherRoute: typeof WeatherRoute
+  WelcomeRoute: typeof WelcomeRoute
+  ApiAssistantRoute: typeof ApiAssistantRoute
+  ApiBusinessRoute: typeof ApiBusinessRoute
+  ApiLearnRoute: typeof ApiLearnRoute
+  ApiScanRoute: typeof ApiScanRoute
+  FarmFarmIdRoute: typeof FarmFarmIdRoute
+  PlanPlanIdRoute: typeof PlanPlanIdRoute
+  FarmIndexRoute: typeof FarmIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +455,259 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expert': {
+      id: '/expert'
+      path: '/expert'
+      fullPath: '/expert'
+      preLoaderRoute: typeof ExpertRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fertilizer': {
+      id: '/fertilizer'
+      path: '/fertilizer'
+      fullPath: '/fertilizer'
+      preLoaderRoute: typeof FertilizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance': {
+      id: '/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof FinanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot': {
+      id: '/forgot'
+      path: '/forgot'
+      fullPath: '/forgot'
+      preLoaderRoute: typeof ForgotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/irrigation': {
+      id: '/irrigation'
+      path: '/irrigation'
+      fullPath: '/irrigation'
+      preLoaderRoute: typeof IrrigationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning': {
+      id: '/learning'
+      path: '/learning'
+      fullPath: '/learning'
+      preLoaderRoute: typeof LearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loans': {
+      id: '/loans'
+      path: '/loans'
+      fullPath: '/loans'
+      preLoaderRoute: typeof LoansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/market': {
+      id: '/market'
+      path: '/market'
+      fullPath: '/market'
+      preLoaderRoute: typeof MarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pests': {
+      id: '/pests'
+      path: '/pests'
+      fullPath: '/pests'
+      preLoaderRoute: typeof PestsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/planner': {
+      id: '/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plant': {
+      id: '/plant'
+      path: '/plant'
+      fullPath: '/plant'
+      preLoaderRoute: typeof PlantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scan': {
+      id: '/scan'
+      path: '/scan'
+      fullPath: '/scan'
+      preLoaderRoute: typeof ScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schemes': {
+      id: '/schemes'
+      path: '/schemes'
+      fullPath: '/schemes'
+      preLoaderRoute: typeof SchemesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks': {
+      id: '/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof TasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify': {
+      id: '/verify'
+      path: '/verify'
+      fullPath: '/verify'
+      preLoaderRoute: typeof VerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/weather': {
+      id: '/weather'
+      path: '/weather'
+      fullPath: '/weather'
+      preLoaderRoute: typeof WeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/assistant': {
+      id: '/api/assistant'
+      path: '/api/assistant'
+      fullPath: '/api/assistant'
+      preLoaderRoute: typeof ApiAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/business': {
+      id: '/api/business'
+      path: '/api/business'
+      fullPath: '/api/business'
+      preLoaderRoute: typeof ApiBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/learn': {
+      id: '/api/learn'
+      path: '/api/learn'
+      fullPath: '/api/learn'
+      preLoaderRoute: typeof ApiLearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/scan': {
+      id: '/api/scan'
+      path: '/api/scan'
+      fullPath: '/api/scan'
+      preLoaderRoute: typeof ApiScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/farm/': {
+      id: '/farm/'
+      path: '/farm'
+      fullPath: '/farm/'
+      preLoaderRoute: typeof FarmIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/farm/$farmId': {
+      id: '/farm/$farmId'
+      path: '/farm/$farmId'
+      fullPath: '/farm/$farmId'
+      preLoaderRoute: typeof FarmFarmIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan/$planId': {
+      id: '/plan/$planId'
+      path: '/plan/$planId'
+      fullPath: '/plan/$planId'
+      preLoaderRoute: typeof PlanPlanIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssistantRoute: AssistantRoute,
+  BusinessRoute: BusinessRoute,
+  ExpertRoute: ExpertRoute,
+  FertilizerRoute: FertilizerRoute,
+  FinanceRoute: FinanceRoute,
+  ForgotRoute: ForgotRoute,
+  IrrigationRoute: IrrigationRoute,
+  LearningRoute: LearningRoute,
+  LoansRoute: LoansRoute,
+  LoginRoute: LoginRoute,
+  MarketRoute: MarketRoute,
+  MoreRoute: MoreRoute,
+  NotificationsRoute: NotificationsRoute,
+  PestsRoute: PestsRoute,
+  PlannerRoute: PlannerRoute,
+  PlantRoute: PlantRoute,
+  RegisterRoute: RegisterRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  ScanRoute: ScanRoute,
+  SchemesRoute: SchemesRoute,
+  TasksRoute: TasksRoute,
+  VerifyRoute: VerifyRoute,
+  WeatherRoute: WeatherRoute,
+  WelcomeRoute: WelcomeRoute,
+  ApiAssistantRoute: ApiAssistantRoute,
+  ApiBusinessRoute: ApiBusinessRoute,
+  ApiLearnRoute: ApiLearnRoute,
+  ApiScanRoute: ApiScanRoute,
+  FarmFarmIdRoute: FarmFarmIdRoute,
+  PlanPlanIdRoute: PlanPlanIdRoute,
+  FarmIndexRoute: FarmIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
