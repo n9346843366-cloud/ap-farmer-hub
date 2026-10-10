@@ -213,6 +213,8 @@ function HomeInner() {
         <Tile to="/loans" emoji="🏦" title={lang === "te" ? "రైతు రుణాలు" : "Farm Loans"} sub={lang === "te" ? "రుణం ఎలా పొందాలి" : "How to get a loan"} />
         <Tile to="/business" emoji="💡" title={lang === "te" ? "బిజినెస్ హబ్" : "Business Hub"} sub={lang === "te" ? "ఆలోచనలు & పెట్టుబడి" : "Ideas & investment"} />
         <Tile to="/schemes" emoji="🏛️" title={lang === "te" ? "ప్రభుత్వ పథకాలు" : "Govt Schemes"} sub={lang === "te" ? "అర్హత గైడ్" : "Eligibility guide"} />
+        <Tile to="/meeseva" emoji="🏢" title={lang === "te" ? "మినీ మీసేవ" : "Mini MeeSeva"} sub={lang === "te" ? "భూమి రికార్డులు & దరఖాస్తులు" : "Land records & applications"} />
+        <Tile to="/mango" emoji="🥭" title={lang === "te" ? "మామిడి నిర్వహణ" : "Mango Management"} sub={lang === "te" ? "నెలవారీ సంరక్షణ" : "Month-wise orchard care"} />
         <Tile to="/market" emoji="📈" title={t("market")} sub={lang === "te" ? "అంచనా మండి ధరలు" : "Approx mandi prices"} />
         <Tile to="/pests" emoji="🐛" title={t("pests")} sub={lang === "te" ? "తేనె మంచు పురుగు: అధికం" : "Hopper risk: High"} />
       </div>

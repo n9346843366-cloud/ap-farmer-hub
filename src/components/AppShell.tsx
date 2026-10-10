@@ -2,6 +2,7 @@ import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { useApp } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import { LocationAccess } from "@/components/LocationAccess";
 
 export function Ambient() {
   return (
@@ -82,6 +83,7 @@ export function AppShell({ children, requireAuth = true }: { children: ReactNode
             <LangSwitch />
           </div>
         </header>
+        <LocationAccess />
         <main key={path} className="page-enter mt-4">{children}</main>
       </div>
 
