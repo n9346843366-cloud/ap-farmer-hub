@@ -21,9 +21,12 @@ export function FeedbackBox() {
       user_id: data.user.id, name: user?.name ?? null, email: data.user.email ?? null, message: m.slice(0, 4000),
     });
     setBusy(false);
-    if (error) return toast.error(T("Could not send. Please try again.", "పంపలేకపోయాం. మళ్లీ ప్రయత్నించండి."));
+    if (error) return toast.error(T("Could not save. Please try again.", "సేవ్ కాలేదు. మళ్లీ ప్రయత్నించండి."));
+    const subject = encodeURIComponent("VERDIX suggestion" + (user?.name ? ` from ${user.name}` : ""));
+    const body = encodeURIComponent(m.slice(0, 1800));
+    window.location.href = `mailto:cjaganmohanreddy93@gmail.com?subject=${subject}&body=${body}`;
     setMsg("");
-    toast.success(T("Thank you! Your message was sent.", "ధన్యవాదాలు! మీ సందేశం పంపబడింది."));
+    toast.success(T("Saved. Your mail app opened — tap Send to email it.", "సేవ్ అయింది. మెయిల్ యాప్ తెరుచుకుంది — పంపండి నొక్కండి."));
   };
 
   return (

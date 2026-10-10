@@ -3,6 +3,8 @@ import { AppShell, seo } from "@/components/AppShell";
 import { Btn, Card, Chip, Eyebrow, PageHeader, useT } from "@/components/kit";
 import { useApp } from "@/lib/store";
 import { FeedbackBox } from "@/components/FeedbackBox";
+import { MoreLanguages } from "@/components/MoreLanguages";
+import { UseMyLocation } from "@/components/UseMyLocation";
 
 export const Route = createFileRoute("/more")({
   head: () => seo("More", "All VERDIX tools, language settings, profile and help center."),
@@ -47,6 +49,8 @@ function More() {
           <Chip active={lang === "en"} onClick={() => setLang("en")}>English</Chip>
           <Chip active={lang === "te"} onClick={() => setLang("te")}>తెలుగు</Chip>
         </div>
+        <MoreLanguages />
+        <UseMyLocation />
       </Card>
       <div className="grid grid-cols-3 gap-2">
         {LINKS.map((l) => (
