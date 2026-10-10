@@ -27,9 +27,13 @@ export type Notice = { id: string; type: string; emoji: string; title: L; body: 
 export type Finance = { items: Record<string, number>; yieldQty: number; price: number; unit: string };
 export type LedgerEntry = { id: string; date: string; kind: "expense" | "income"; category: string; amount: number; note?: string };
 
+export type GovApp = { id: string; serviceId?: string; service: string; ref: string; date?: string; portal?: string; status?: string; statusSource: "manual" | "unchecked"; followUp?: string; notes?: string; createdAt: string };
+export type Gov = { saved: string[]; checklists: Record<string, Record<string, "have" | "pending">>; reminders: Record<string, string>; apps: GovApp[] };
+const emptyGov: Gov = { saved: [], checklists: {}, reminders: {}, apps: [] };
+
 type State = {
   user: User | null; lang: Lang; farms: Farm[]; activeFarmId?: string; plans: CropPlan[]; tasks: Task[];
-  scans: Scan[]; expert: ExpertRequest[]; notices: Notice[]; finance: Finance; ledger: LedgerEntry[];
+  scans: Scan[]; expert: ExpertRequest[]; notices: Notice[]; finance: Finance; ledger: LedgerEntry[]; gov?: Gov;
 };
 
 const uid = () => Math.random().toString(36).slice(2, 10);
@@ -134,7 +138,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const { data } = await supabase.from("user_state").select("data").eq("user_id", id).maybeSingle();
       if (cancelled) return;
       const saved = (data?.data ?? {}) as Partial<State>;
-      const next: State = { ...empty, ...saved, ledger: saved.ledger ?? [] };
+      const next: State = { ...empty, ...saved, ledger: saved.ledger ?? [], gov: { ...emptyGov, ...(saved.gov ?? {}) } };
       const m = session.user.user_metadata ?? {};
       if (!next.user) {
         const lang = (m.language === "te" ? "te" : "en") as Lang;
@@ -221,6 +225,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     markAllNotices: () => setS((p) => ({ ...p, notices: p.notices.map((n) => ({ ...n, read: true })) })),
     setFinance: (finance) => setS((p) => ({ ...p, finance })),
     addLedger: (e) => setS((p) => ({ ...p, ledger: [{ ...e, id: uid() }, ...(p.ledger ?? [])] })),
+    gov: s.gov ?? emptyGov,
+    updateGov: (fn) => setS((p) => ({ ...p, gov: fn(p.gov ?? emptyGov) })),
     removeLedger: (id) => setS((p) => ({ ...p, ledger: (p.ledger ?? []).filter((x) => x.id !== id) })),
   }), [s, hydrated, t, tl, userId]);
 

@@ -37,7 +37,7 @@ function Assistant() {
   const [err, setErr] = useState<string>();
   const sendRef = useRef<(s: string) => void>(() => {});
   const [reply, setReply] = useState<string>(lang);
-  const voiceLang = reply === "en" || reply === "te" ? lang === "te" && reply === "en" ? "en" : reply : reply;
+  const voiceLang = reply;
   const mic = useSpeechInput(voiceLang, (s, final) => { setText(s); if (final) sendRef.current(s); });
 
   const send = async (content: string) => {
@@ -47,7 +47,7 @@ function Assistant() {
     setMsgs([...next, { role: "assistant", content: "" }]); setText(""); setImg(undefined); setBusy(true); setErr(undefined);
     try {
       const r = await fetch("/api/assistant", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next, lang: reply === "te" ? "te" : lang === "te" && reply === "en" ? "en" : lang, replyLang: reply, context: farmContext(user, activeFarm, plans.find((p) => p.farmId === activeFarm?.id), w) }) });
+        body: JSON.stringify({ messages: next, lang: reply === "te" ? "te" : "en", replyLang: reply, context: farmContext(user, activeFarm, plans.find((p) => p.farmId === activeFarm?.id), w) }) });
       if (!r.ok || !r.body) throw new Error((await r.json().catch(() => ({}))).error || "Assistant unavailable");
       const reader = r.body.getReader(); const dec = new TextDecoder(); let acc = "";
       for (;;) { const { done, value } = await reader.read(); if (done) break; acc += dec.decode(value, { stream: true });
