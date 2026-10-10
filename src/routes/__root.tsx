@@ -17,6 +17,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Intro } from "@/components/Intro";
 import { Button } from "@/components/ui/button";
 import { LocationFollower } from "@/components/LocationFollower";
+import { TranslatorLoader } from "@/components/MoreLanguages";
 
 function NotFoundComponent() {
   return (
@@ -106,6 +107,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <AppProvider>
         <Outlet />
+        <TranslatorLoader />
         <Toaster position="top-center" richColors />
         <Intro />
         <LocationFollower />
