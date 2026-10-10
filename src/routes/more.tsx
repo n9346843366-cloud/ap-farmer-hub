@@ -15,9 +15,14 @@ export const Route = createFileRoute("/more")({
 
 const LINKS = [
   { to: "/meeseva", e: "🏢", en: "Mini MeeSeva", te: "మినీ మీసేవ" },
+  { to: "/schemes", e: "🏛️", en: "Govt Schemes", te: "ప్రభుత్వ పథకాలు" },
+  { to: "/finance", e: "💰", en: "Farm Finance", te: "ఫార్మ్ ఫైనాన్స్" },
+  { to: "/loans", e: "🏦", en: "Farm Loans", te: "రైతు రుణాలు" },
+  { to: "/business", e: "💡", en: "Business Hub", te: "బిజినెస్ హబ్" },
+  { to: "/learning", e: "📚", en: "Learning Hub", te: "లెర్నింగ్ హబ్" },
   { to: "/mango", e: "🥭", en: "Mango care", te: "మామిడి సంరక్షణ" },
   { to: "/expert", e: "👨‍🌾", en: "Expert help", te: "నిపుణుల సహాయం" },
-];
+] as const;
 
 const FAQ = [
   { q: { en: "How do I start?", te: "ఎలా మొదలుపెట్టాలి?" }, a: { en: "Add your farm, then open Crop Calendar, pick a crop and date, and tap Create crop plan.", te: "పొలం జోడించి, పంట క్యాలెండర్‌లో పంట, తేదీ ఎంచుకుని ప్రణాళిక చేయండి." } },
