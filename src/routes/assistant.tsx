@@ -22,6 +22,8 @@ const HELP = [
   ["💰", "Help me calculate expenses", "ఖర్చుల లెక్క"], ["📈", "Help me understand market information", "మార్కెట్ సమాచారం"],
 ];
 
+const REPLY_LANGS = [["en", "English"], ["te", "తెలుగు"], ["hi", "हिन्दी"], ["ta", "தமிழ்"], ["kn", "ಕನ್ನಡ"], ["ml", "മലയാളം"], ["mr", "मराठी"], ["bn", "বাংলা"], ["gu", "ગુજરાતી"], ["pa", "ਪੰਜਾਬੀ"], ["or", "ଓଡ଼ିଆ"]] as const;
+
 type Msg = { role: "user" | "assistant"; content: string; image?: string };
 
 function Assistant() {
@@ -34,7 +36,9 @@ function Assistant() {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string>();
   const sendRef = useRef<(s: string) => void>(() => {});
-  const mic = useSpeechInput(lang, (s, final) => { setText(s); if (final) sendRef.current(s); });
+  const [reply, setReply] = useState<string>(lang);
+  const voiceLang = reply === "en" || reply === "te" ? lang === "te" && reply === "en" ? "en" : reply : reply;
+  const mic = useSpeechInput(voiceLang, (s, final) => { setText(s); if (final) sendRef.current(s); });
 
   const send = async (content: string) => {
     if (!content.trim() && !img) return;
@@ -43,7 +47,7 @@ function Assistant() {
     setMsgs([...next, { role: "assistant", content: "" }]); setText(""); setImg(undefined); setBusy(true); setErr(undefined);
     try {
       const r = await fetch("/api/assistant", { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next, lang, context: farmContext(user, activeFarm, plans.find((p) => p.farmId === activeFarm?.id), w) }) });
+        body: JSON.stringify({ messages: next, lang: reply === "te" ? "te" : lang === "te" && reply === "en" ? "en" : lang, replyLang: reply, context: farmContext(user, activeFarm, plans.find((p) => p.farmId === activeFarm?.id), w) }) });
       if (!r.ok || !r.body) throw new Error((await r.json().catch(() => ({}))).error || "Assistant unavailable");
       const reader = r.body.getReader(); const dec = new TextDecoder(); let acc = "";
       for (;;) { const { done, value } = await reader.read(); if (done) break; acc += dec.decode(value, { stream: true });
@@ -56,6 +60,11 @@ function Assistant() {
   return (
     <div className="assistant-panel flex min-h-0 flex-col gap-3">
       <PageHeader emoji="🤝" title={t("canHelp")} sub={t("askLang")} />
+      <div className="flex gap-1.5 overflow-x-auto pb-1" aria-label="Reply language">
+        {REPLY_LANGS.map(([c, n]) => (
+          <button key={c} onClick={() => setReply(c)} aria-pressed={reply === c} className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 ring-border ${reply === c ? "bg-primary text-primary-foreground" : "bg-surface-strong text-muted-foreground"}`}>{n}</button>
+        ))}
+      </div>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain space-y-3" aria-label="Chat messages" role="log">
       {msgs.length === 0 && (
         <div className="grid grid-cols-2 gap-2">
@@ -73,7 +82,7 @@ function Assistant() {
         ) : (
           <div key={i} className="glass p-4 text-[15px] leading-relaxed">
             {m.content ? <div className="prose prose-sm max-w-none [&_li]:my-0.5 [&_ul]:list-disc [&_ul]:pl-5"><ReactMarkdown>{m.content}</ReactMarkdown></div> : <span className="animate-pulse">🌱 …</span>}
-            {m.content && !busy && <button onClick={() => speak(m.content, lang)} className="mt-2 text-sm font-semibold text-primary">🔊 {lang === "te" ? "వినండి" : "Listen"}</button>}
+            {m.content && !busy && <button onClick={() => speak(m.content, voiceLang)} className="mt-2 text-sm font-semibold text-primary">🔊 {lang === "te" ? "వినండి" : "Listen"}</button>}
           </div>
         ))}
       </div>

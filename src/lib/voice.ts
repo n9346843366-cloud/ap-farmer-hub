@@ -8,7 +8,9 @@ type SR = {
   onend: (() => void) | null; onerror: ((e: { error: string }) => void) | null;
 };
 
-export function useSpeechInput(lang: "en" | "te", onText: (t: string, final: boolean) => void) {
+export const bcp = (lang: string) => (lang.includes("-") ? lang : `${lang}-IN`);
+
+export function useSpeechInput(lang: string, onText: (t: string, final: boolean) => void) {
   const [listening, setListening] = useState(false);
   const [supported, setSupported] = useState(false);
   const ref = useRef<SR | null>(null);
@@ -25,7 +27,7 @@ export function useSpeechInput(lang: "en" | "te", onText: (t: string, final: boo
     const C = w.SpeechRecognition || w.webkitSpeechRecognition;
     if (!C) return false;
     const r = new C();
-    r.lang = lang === "te" ? "te-IN" : "en-IN";
+    r.lang = bcp(lang);
     r.interimResults = true;
     r.continuous = false;
     r.onresult = (e) => {
@@ -53,13 +55,13 @@ export function useSpeechInput(lang: "en" | "te", onText: (t: string, final: boo
   return { listening, supported, start, stop };
 }
 
-export function speak(text: string, lang: "en" | "te") {
+export function speak(text: string, lang: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return false;
   window.speechSynthesis.cancel();
   const clean = text.replace(/[*#_`>-]/g, " ");
   const u = new SpeechSynthesisUtterance(clean);
-  u.lang = lang === "te" ? "te-IN" : "en-IN";
-  const v = window.speechSynthesis.getVoices().find((x) => x.lang.startsWith(lang === "te" ? "te" : "en-IN"));
+  u.lang = bcp(lang);
+  const v = window.speechSynthesis.getVoices().find((x) => x.lang.startsWith(lang === "en" ? "en-IN" : lang));
   if (v) u.voice = v;
   u.rate = 0.95;
   window.speechSynthesis.speak(u);
