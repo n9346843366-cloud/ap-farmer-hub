@@ -23,7 +23,7 @@ export function geolocationSupported() {
 }
 
 /** Coordinates rounded to ~1 km — enough for weather, never an exact address. */
-const round = (n: number) => Math.round(n * 1000) / 1000;
+const round = (n: number) => Math.round(n * 10000) / 10000;
 
 /**
  * Asks the browser once. Only ever called from an explicit tap, so the
@@ -50,12 +50,12 @@ function once(opts: PositionOptions): Promise<Geo> {
 export async function requestPosition(): Promise<Geo> {
   if (!geolocationSupported()) throw "unsupported" as GeoFailure;
   try {
-    return await once({ enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 });
+    return await once({ enableHighAccuracy: true, timeout: 20000, maximumAge: 0 });
   } catch (e) {
     if (e === "denied") throw e;
   }
   try {
-    return await once({ enableHighAccuracy: true, timeout: 20000, maximumAge: 0 });
+    return await once({ enableHighAccuracy: false, timeout: 10000, maximumAge: 0 });
   } catch (e) {
     if (e === "denied") throw e;
     if (lastFix) return lastFix.geo;
