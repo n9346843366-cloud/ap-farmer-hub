@@ -9,3 +9,6 @@
 - [x] Location access prompt with automatic weather/location updates
 - [x] Regional-language replies in AI assistant (11 Indian languages)
 - [x] Specialised Mango Management page
+- [x] Move MeeSeva, Schemes, Finance, Loans, Business Hub, Learning Hub tiles from Home into More
+- [ ] Email suggestions to cjaganmohanreddy93@gmail.com — blocked: needs an email sending domain set up
+- [ ] Full VERDIX AgriMind upgrade brief (Farm Intelligence, Simulator, Buyer Connect, Insurance, etc.) — waiting for user to pick which phase first

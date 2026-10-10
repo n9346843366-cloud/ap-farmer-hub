@@ -208,12 +208,6 @@ function HomeInner() {
         <Tile to="/irrigation" emoji="💧" title={t("irrigation")} sub={lang === "te" ? `నేల తేమ ${sensor.moisture}% · గమనించాలి` : `Soil ${sensor.moisture}% · Needs monitoring`} />
         <Tile to="/fertilizer" emoji="🧪" title={t("fertilizer")} sub={stage ? `${tl(stage.label)}` : lang === "te" ? "ప్రణాళిక చూడండి" : "See nutrient plan"} />
         <Tile to="/scan" emoji="🩺" title={t("cropHealth")} sub={lang === "te" ? "ఆకు ఫోటోతో సమస్య తెలుసుకోండి" : "Photo check & treatment"} />
-        <Tile to="/finance" emoji="💰" title={lang === "te" ? "ఫార్మ్ ఫైనాన్స్" : "Farm Finance"} sub={lang === "te" ? "పెట్టుబడి & లాభం" : "Invested vs gained"} />
-        <Tile to="/learning" emoji="📚" title={lang === "te" ? "లెర్నింగ్ హబ్" : "Learning Hub"} sub={lang === "te" ? "కొత్త పంట ఖర్చు & దూరం" : "New crop cost & spacing"} />
-        <Tile to="/loans" emoji="🏦" title={lang === "te" ? "రైతు రుణాలు" : "Farm Loans"} sub={lang === "te" ? "రుణం ఎలా పొందాలి" : "How to get a loan"} />
-        <Tile to="/business" emoji="💡" title={lang === "te" ? "బిజినెస్ హబ్" : "Business Hub"} sub={lang === "te" ? "ఆలోచనలు & పెట్టుబడి" : "Ideas & investment"} />
-        <Tile to="/schemes" emoji="🏛️" title={lang === "te" ? "ప్రభుత్వ పథకాలు" : "Govt Schemes"} sub={lang === "te" ? "అర్హత గైడ్" : "Eligibility guide"} />
-        <Tile to="/meeseva" emoji="🏢" title={lang === "te" ? "మినీ మీసేవ" : "Mini MeeSeva"} sub={lang === "te" ? "భూమి రికార్డులు & దరఖాస్తులు" : "Land records & applications"} />
         <Tile to="/mango" emoji="🥭" title={lang === "te" ? "మామిడి నిర్వహణ" : "Mango Management"} sub={lang === "te" ? "నెలవారీ సంరక్షణ" : "Month-wise orchard care"} />
         <Tile to="/market" emoji="📈" title={t("market")} sub={lang === "te" ? "అంచనా మండి ధరలు" : "Approx mandi prices"} />
         <Tile to="/pests" emoji="🐛" title={t("pests")} sub={lang === "te" ? "తేనె మంచు పురుగు: అధికం" : "Hopper risk: High"} />
