@@ -43,7 +43,7 @@ export function LocationFollower() {
           if (f) uf(f.id, patch);
         },
         () => {},
-        { enableHighAccuracy: false, maximumAge: 60000, timeout: 20000 },
+        { enableHighAccuracy: true, maximumAge: 0, timeout: 20000 },
       );
     };
     const perms = (navigator as Navigator & { permissions?: Permissions }).permissions;
